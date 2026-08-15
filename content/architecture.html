@@ -1,0 +1,23 @@
+<div class="doc"><aside class="side"><b>Start</b><a href="@pathto('docs')">Overview</a><a href="@pathto('getting-started')">Getting started</a><a href="@pathto('cli')">CLI</a><a href="@pathto('formats')">Formats</a><b>Design</b><a href="@pathto('architecture')">Architecture</a><b>Evaluation</b><a href="@pathto('battle-tested')">Battle tested</a><a href="@pathto('ai-opinion')">AI opinion</a></aside><article><div class="ey">Design</div><h1>Architecture: conservative scanners, format-specific contracts</h1>
+<p class="lead">Minify++'s architecture is built around one uncomfortable truth: removing a single character can change a program. The implementation therefore optimises only where it can maintain enough lexical context to explain why the removal is safe.</p>
+<h2>Independent project boundary</h2>
+<pre><code class="language-plaintext">include/minify/Minify++.h       public C++ API
+src/Minify++.cpp              format implementations
+src/Json.h                private JSON parser
+cli/main.cpp              standalone CLI
+tests/                    independent correctness gates</code></pre>
+<p>Nift consumes the public header and implementation. Minify++ does not know about Nift tracking, templates, configuration or deployment.</p>
+<h2>No universal whitespace pass</h2>
+<p>A universal text minifier would be simpler and much less trustworthy. Each mode owns the grammar boundaries that matter to it: raw text and mixed content for HTML; strings/functions/custom properties for CSS; lexical slash/brace/template context for JavaScript; element/expression boundaries for JSX; structured parsing for JSON.</p>
+<h2>Why not a full JavaScript AST?</h2>
+<p>A complete AST would enable deeper optimisation, but it would also move Minify++ toward being a compiler. The current scanner approach keeps startup and deployment tiny and is compatible with Minify++'s final-output role. When syntax is ambiguous, the preferred answer is conservative output plus a regression—not increasingly aggressive guessing.</p>
+<h2>Idempotence</h2>
+<p>A useful property of a minifier is stability:</p>
+<pre><code class="language-plaintext">minify(minify(source)) == minify(source)</code></pre>
+<p>The JSX corpus enforces byte-for-byte idempotence, and direct format tests cover the same principle where useful. Stability makes build caches and diffs more predictable and catches scanners that change interpretation after their own first rewrite.</p>
+<h2>Error and write boundary</h2>
+<p>Transformation happens before destructive replacement. The default CLI writes a new sibling file; in-place mode is explicit. Malformed structured input should return an error rather than leaving a half-written artifact.</p>
+<h2>What belongs in Minify++?</h2>
+<div class="call"><strong>Architecture test:</strong> does the feature make Minify++ better at safely optimising a final artifact, or does it make Minify++ responsible for a neighbouring compiler/build tool's problem domain?</div>
+<p>More adversarial syntax support, diagnostics and final-format coverage can fit. Type checking, bundling, framework plugins, shell execution and source-language compilation generally do not.</p>
+</article></div>
