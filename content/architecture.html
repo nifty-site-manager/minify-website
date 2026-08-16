@@ -17,7 +17,7 @@ tests/                    independent correctness gates</code></pre>
 <p>The JSX corpus enforces byte-for-byte idempotence, and direct format tests cover the same principle where useful. Stability makes build caches and diffs more predictable and catches scanners that change interpretation after their own first rewrite.</p>
 <h2>Error and write boundary</h2>
 <p>Transformation happens before destination replacement. The default CLI writes a new sibling file; in-place mode is explicit. Complete output is prepared in a sibling temporary directory and committed afterward, with existing permission bits preserved. Symbolic-link destinations are rejected rather than followed or silently replaced.</p>
-<p>Standalone and Nift-embedded source, tests and build contracts are checked through an explicit 19-file equality gate. The repository also provides repeatable ASan/UBSan, deterministic mutation and per-format performance/RSS entry points.</p>
+<p>Standalone and Nift-embedded source, tests and build contracts are checked through an explicit 20-file equality gate. The repository also provides repeatable ASan/UBSan, deterministic mutation, independent CSS semantic comparison and per-format performance/RSS entry points.</p>
 <h2>Whitespace is sometimes syntax</h2>
 <p>The production fuzz campaign exposed a shared risk across otherwise different scanners: removing whitespace can manufacture a new delimiter. CSS can gain <code>/*</code>, JSX-aware JavaScript can gain an opener beginning with <code>&lt;</code>, and HTML/XML can gain comment or CDATA-like prefixes. Safe removal therefore asks a format-specific question: can the surviving left and right neighborhoods become adjacent without creating new syntax?</p>
 <h2>One whole-buffer transaction</h2>

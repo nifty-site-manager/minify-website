@@ -89,10 +89,13 @@ identity, audit supported-format and malformed-input wording, verify examples an
 test counts, contextualize benchmarks, describe standalone/Nift boundaries, and
 validate release/download/publication information before production claims.
 
-The 2026-08-16 product assessment is **PASS WITH KNOWN LIMITATIONS** for the
-documented conservative contract on directly validated Linux x86-64. The site may
-state that scoped decision only while it also preserves the explicit macOS/Windows,
-XML/SVG validation, finite-corpus, and host-specific benchmark limitations.
+The 2026-08-16 product assessment is **PASS WITH KNOWN LIMITATIONS; REVALIDATED
+AFTER REOPENING**. This website exposed unsafe CSS whitespace removal, causing the
+earlier pass to be withdrawn. The label was restored only after repairs, expanded
+semantic/fuzz/sanitizer evidence, a clean committed-package distcheck, synchronized
+Nift integration and fresh-browser website validation. Limitations around
+macOS/Windows, XML/SVG validation, finite corpora and host-specific benchmarks
+remain explicit.
 
 The production-readiness page is the canonical public explanation of that
 decision. Keep its evidence wall, limitations, downgrade triggers, and assessment

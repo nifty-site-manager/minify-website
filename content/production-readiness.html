@@ -1,19 +1,19 @@
 <section class="doc">@input("templates/sidebar.html")<article>
 <p class="ey">Production assessment</p>
 <h1>Is Minify++ production-grade?</h1>
-<p class="lead">Yes—for deliberate use within its documented conservative API, CLI and seven-format contract on the directly validated Linux toolchain. The decision is <strong>PASS WITH KNOWN LIMITATIONS</strong>.</p>
+<p class="lead">The previous scoped pass was withdrawn after a real CSS failure. Following repairs and materially stronger evidence, the decision is now <strong>PASS WITH KNOWN LIMITATIONS — REVALIDATED AFTER REOPENING</strong>.</p>
 
-<div class="verdict"><strong>Production-grade, scoped.</strong><span>Ship it where the documented contract matches the workload. Do not market it as a validating parser, universal optimizer or proven cross-platform binary without the corresponding evidence.</span></div>
+<div class="verdict"><strong>Production-grade for the documented scope.</strong><span>The restored pass follows a clean committed-package test and fresh-browser website validation. It is not a claim of universal syntax, validating-parser behavior or untested platform support.</span></div>
 
 <h2>Why the answer is yes</h2>
-<ul class="check"><li>All direct correctness, semantic, cross-format, CLI and Nift integration suites pass.</li><li>15,459 generated JavaScript programs execute before and after minification with equivalent observed behavior.</li><li>180 JSX/TSX programs pass reference parsing and idempotence checks.</li><li>111 non-JavaScript documents exercise HTML, CSS, JSON, XML and SVG contracts.</li><li>70,000 deterministic mutations pass across all seven format modes.</li><li>ASan, UBSan and LeakSanitizer found no issue in the completed release-like validation.</li><li>Clean archived source builds and runs the complete test wall.</li><li>The standalone and Nift-embedded implementations pass an exact 19-file synchronization gate.</li><li>Performance and peak-memory measurements provide a repeatable regression reference.</li><li>Public limitations are documented rather than obscured by broad compatibility language.</li></ul>
+<ul class="check"><li>All current direct correctness, semantic, cross-format, CLI and Nift integration suites pass.</li><li>15,459 generated JavaScript programs execute before and after minification with equivalent observed behavior.</li><li>180 JSX/TSX programs pass reference parsing and idempotence checks.</li><li>115 non-JavaScript documents exercise HTML, CSS, JSON, XML and SVG contracts.</li><li>17 representative stylesheets pass an independent normalized PostCSS semantic-tree comparison.</li><li>7,000,000 deterministic mutations pass across all seven format modes under both ordinary and ASan/UBSan builds.</li><li>The standalone and Nift-embedded implementations pass an exact 20-file synchronization gate.</li><li>Performance and peak-memory measurements provide a repeatable regression reference.</li><li>Clean archived-source validation is deliberately pending until the coherent changes are committed.</li><li>Public limitations and the reopened decision are documented rather than obscured.</li></ul>
 
 <h2>The fuzz campaign materially changed the assessment</h2>
 <p>Fuzzing did not merely run and report green. It first found three genuine token-manufacturing families:</p>
 <pre><code class="language-plaintext">CSS       / * or * /       → accidental comment delimiter
 JSX       &lt; name            → JSX-significant opener
 HTML/XML  separated prefix → &lt;!-- or &lt;![CDATA[</code></pre>
-<p>Each finding paused the broader campaign. The reproducer was minimized, the neighboring behavioral family was tested, the boundary logic was fixed, and focused regressions were retained. Only then did the same campaign resume and reach 70,000 successful mutations.</p>
+<p>The original campaign found three token-manufacturing families, but a later real website build still exposed unsafe ordinary CSS boundaries: dimensions, descendant selectors, quoted component values, transform lists and modern color-function arguments could be merged. The reopened audit then found JavaScript block-comment delimiters manufactured across whitespace, JSX roots detected inside JavaScript comments, and unterminated quoted constructs accepted by several format scanners.</p><p>Each finding paused the broader campaign. The reproducer was minimized, neighboring cases were tested, the boundary logic was fixed, and focused regressions were retained. The ordinary-build campaign then reached 7,000,000 successful mutations, and CSS gained an independent semantic-tree oracle so idempotently wrong output cannot satisfy the evidence wall by itself.</p>
 
 <h2>A permanent self-consistency invariant</h2>
 <pre><code class="language-plaintext">minify(input) succeeds
@@ -30,6 +30,6 @@ minify(output) must not reject output</code></pre>
 <p>A supported input changing meaning, a crash/hang or unbounded-growth case, a scanner change without equivalent adversarial evidence, drift between standalone and embedded copies, a regression in file replacement, a failed clean-package build, or public claims expanding beyond tested platforms would all require reassessment.</p>
 
 <h2>The candid conclusion</h2>
-<p>Minify++ is not production-grade because it has many features. It is production-grade because its job is bounded, its failure behavior is controlled, its implementation survived meaningful adversarial testing, real findings were fixed at the family level, and the final claims match the evidence. That status is maintained—not permanent by ceremony.</p>
+<p>This production-grade decision rests on a bounded job, controlled failure behavior, meaningful adversarial testing, family-level fixes and claims that match the evidence. Its withdrawal and later restoration demonstrate that status is maintained and revocable—not permanent by ceremony.</p>
 <p><a class="btn hot" href="@pathto('getting-started')">Build Minify++</a> <a class="btn" href="@pathto('battle-tested')">Inspect the test evidence</a></p>
 </article></section>
