@@ -1,0 +1,14 @@
+{
+  "name": "assets/js/script",
+  "title": "Website script",
+  "template": "templates/asset.txt",
+  "content": "content/assets/js/script.js",
+  "output": "public/assets/js/script.js",
+  "minify": true,
+  "minify-version": 1,
+  "dependencies": [
+    "content/assets/js/script.js",
+    "templates/asset.txt"
+  ],
+  "reqs": []
+}

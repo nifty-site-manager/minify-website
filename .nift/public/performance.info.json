@@ -4,8 +4,8 @@
   "template": "templates/template.html",
   "content": "content/performance.html",
   "output": "public/performance.html",
-  "minify": false,
-  "minify-version": 0,
+  "minify": true,
+  "minify-version": 1,
   "dependencies": [
     "content/performance.html",
     "templates/head.html",
@@ -13,6 +13,7 @@
     "templates/template.html"
   ],
   "reqs": [
+    "public/ai-development.html",
     "public/ai-opinion.html",
     "public/api.html",
     "public/architecture.html",

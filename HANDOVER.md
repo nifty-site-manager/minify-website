@@ -16,6 +16,15 @@ inside `public/` on its `main` branch; then commit the updated `public` Git-link
 pointer on `stage`. Push both branches only when authorized. Never build while the
 outer repository is on `main`, and never treat built HTML as source authority.
 
+CSS and JavaScript are canonical readable sources under `content/assets/`, not
+hand-edited files inside the deployment checkout. They are tracked Nift outputs
+with per-entry `.css`/`.js` extensions and the content-only
+`templates/asset.txt` template. Project-wide `minify-exts` minifies HTML, CSS,
+and JavaScript after successful rendering. A normal `build-all` publishes pages
+and assets together; if a deployment asset has deliberately been removed during
+recovery, build the asset entries first so referring pages never race a missing
+path during validation.
+
 ## Product responsibility
 
 The site should explain a deliberately focused tool simply and honestly:

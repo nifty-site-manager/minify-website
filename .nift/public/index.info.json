@@ -4,14 +4,15 @@
   "template": "templates/template.html",
   "content": "content/index.html",
   "output": "public/index.html",
-  "minify": false,
-  "minify-version": 0,
+  "minify": true,
+  "minify-version": 1,
   "dependencies": [
     "content/index.html",
     "templates/head.html",
     "templates/template.html"
   ],
   "reqs": [
+    "public/ai-development.html",
     "public/ai-opinion.html",
     "public/api.html",
     "public/assets/css/style.css",

@@ -54,6 +54,25 @@
       "name": "ai-opinion",
       "title": "AI opinion",
       "template": "templates/template.html"
+    },
+    {
+      "name": "ai-development",
+      "title": "AI development",
+      "template": "templates/template.html"
+    },
+    {
+      "name": "assets/css/style",
+      "title": "Website styles",
+      "template": "templates/asset.txt",
+      "content-ext": ".css",
+      "output-ext": ".css"
+    },
+    {
+      "name": "assets/js/script",
+      "title": "Website script",
+      "template": "templates/asset.txt",
+      "content-ext": ".js",
+      "output-ext": ".js"
     }
   ]
 }
