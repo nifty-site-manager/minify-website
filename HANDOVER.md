@@ -72,6 +72,11 @@ identity, audit supported-format and malformed-input wording, verify examples an
 test counts, contextualize benchmarks, describe standalone/Nift boundaries, and
 validate release/download/publication information before production claims.
 
+The 2026-08-16 product assessment is **PASS WITH KNOWN LIMITATIONS** for the
+documented conservative contract on directly validated Linux x86-64. The site may
+state that scoped decision only while it also preserves the explicit macOS/Windows,
+XML/SVG validation, finite-corpus, and host-specific benchmark limitations.
+
 This roadmap and handover are living infrastructure. Review them at every
 substantial Minify++ or website checkpoint. Correct/reorganize obsolete guidance,
 capture durable lessons, and do not append a diary or let public claims outrun
