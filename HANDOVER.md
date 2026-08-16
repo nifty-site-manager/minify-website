@@ -2,17 +2,19 @@
 
 ## Repository and source authority
 
-This repository is a Nift project on `main`. Canonical source is `content/`,
-`templates/`, and `.nift/`; generated website output is `public/` in the same
-repository. This handover belongs at the repository root and must not be placed in
-`public/`.
+Canonical Nift source lives on `stage` in `content/`, `templates/`, and `.nift/`.
+The `main` branch is the built website, with deployable HTML and assets at its
+root. On `stage`, `public/` is an embedded checkout of this repository's `main`
+branch and is recorded as a Git link, matching the established Nift website
+workflow. This handover belongs only on `stage`; do not place it on built `main`.
 
 Edit source, run Nift to regenerate, and inspect the result. Do not hand-edit
 generated HTML as the canonical change. The current configuration uses
 `public/` output, modified-mode incrementality, and `templates/template.html`.
-Local builds are normal validation; commits, pushes, releases, and deployments
-require explicit approval. Exact hosting/publication procedure remains to be
-confirmed with Nick rather than inferred from a one-commit repository.
+Commit source/tracking/handover changes on `stage`; commit the regenerated files
+inside `public/` on its `main` branch; then commit the updated `public` Git-link
+pointer on `stage`. Push both branches only when authorized. Never build while the
+outer repository is on `main`, and never treat built HTML as source authority.
 
 ## Product responsibility
 
