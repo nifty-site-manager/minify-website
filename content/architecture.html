@@ -17,6 +17,7 @@ tests/                    independent correctness gates</code></pre>
 <p>The JSX corpus enforces byte-for-byte idempotence, and direct format tests cover the same principle where useful. Stability makes build caches and diffs more predictable and catches scanners that change interpretation after their own first rewrite.</p>
 <h2>Error and write boundary</h2>
 <p>Transformation happens before destination replacement. The default CLI writes a new sibling file; in-place mode is explicit. Complete output is prepared in a sibling temporary directory and committed afterward, with existing permission bits preserved. Symbolic-link destinations are rejected rather than followed or silently replaced.</p>
+<p>Standalone and Nift-embedded source, tests and build contracts are checked through an explicit 18-file equality gate. The repository also provides repeatable ASan/UBSan, deterministic mutation and per-format performance/RSS entry points.</p>
 <h2>What belongs in Minify++?</h2>
 <div class="call"><strong>Architecture test:</strong> does the feature make Minify++ better at safely optimising a final artifact, or does it make Minify++ responsible for a neighbouring compiler/build tool's problem domain?</div>
 <p>More adversarial syntax support, diagnostics and final-format coverage can fit. Type checking, bundling, framework plugins, shell execution and source-language compilation generally do not.</p>

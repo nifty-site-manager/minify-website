@@ -37,7 +37,9 @@
 <h2>Layer 5: standalone CLI behavior</h2>
 <p>The CLI suite verifies normal output, in-place behavior, malformed input, unknown options, failure safety and version output. A library can be correct while a file-replacement path is destructive, so CLI behavior is tested separately.</p>
 
-<h2>Layer 6: embedded Nift integration</h2>
+<h2>Layer 6: sanitizer-backed mutation testing</h2>
+<p>A deterministic 70,000-case mutation gate attacks valid seeds from all seven formats. Any first-pass output accepted by Minify++ must remain acceptable on a second pass. Its first production-hardening run found three real token-boundary families—whitespace removal could manufacture a CSS comment delimiter, a JSX opener or HTML/XML comment/CDATA-like syntax. Those cases are now minimized focused regressions, and the full gate passes under AddressSanitizer and UndefinedBehaviorSanitizer.</p>
+<h2>Layer 7: embedded Nift integration</h2>
 <p>Nift uses the same public Minify++ API. Its integration tests verify config-driven minification, per-file overrides, incremental builds and the safe standalone <code>nift minify</code> behavior. These tests belong to Nift because they test Nift's policy and project state; the transformation correctness belongs to Minify++.</p>
 
 <h2>Why the old Nift battle-testing history matters</h2>
