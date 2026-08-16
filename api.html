@@ -1,85 +1,23 @@
-<!doctype html>
-<html lang="en" data-theme="system">
-<head>
-<title>Minify++ — C++ API</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Minify++: conservative multi-format final-output minification."><meta name="color-scheme" content="light dark"><link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-<header>
-  <a class="brand" href="./"><i>M+</i>Minify++</a>
-  <nav><a href="./docs.html">Docs</a><a href="./battle-tested.html">Evidence</a><a href="./production-readiness.html">Production status</a><a href="./ai-opinion.html">AI opinion</a><a href="https://github.com/nifty-site-manager/minify-website">GitHub ↗</a></nav>
-  <div class="themes"><button data-theme-choice="system">System</button><button data-theme-choice="light">Light</button><button data-theme-choice="dark">Dark</button></div>
-</header>
-<main>
-<section class="doc"><aside class="side">
-                       <b>Start</b>
-                       <a href="./docs.html">Overview</a>
-                       <a href="./getting-started.html">Getting started</a>
-                       <a href="./cli.html">CLI</a>
-                       <a href="./api.html">C++ API</a>
-                       <a href="./formats.html">Formats</a>
-                       <b>Design</b>
-                       <a href="./architecture.html">Architecture</a>
-                       <a href="./performance.html">Performance</a>
-                       <b>Evaluation</b>
-                       <a href="./battle-tested.html">Battle tested</a>
-                       <a href="./production-readiness.html">Production readiness</a>
-                       <a href="./ai-opinion.html">AI opinion</a>
-                       <a href="https://github.com/nifty-site-manager/minify-website">Website source ↗</a>
-                     </aside><article>
-<p class="ey">Integration · C++17</p>
-<h1>A seven-function library surface, plus one format dispatcher.</h1>
-<p class="lead">The public API accepts whole buffers and returns either a complete transformed buffer or a controlled error. File discovery, naming and write policy stay with the caller.</p>
-
-<h2>Include and link</h2>
-<pre><code class="language-cpp">#include &lt;minify/Minify.h&gt;
+<!doctype html> <html lang="en" data-theme="system"> <head> <title>Minify++ — C++ API</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Minify++: conservative multi-format final-output minification."><meta name="color-scheme" content="light dark"><link rel="stylesheet" href="assets/css/style.css"> </head> <body> <header> <a class="brand" href="./"><i>M+</i>Minify++</a> <nav><a href="./docs.html">Docs</a><a href="./battle-tested.html">Evidence</a><a href="./production-readiness.html">Production status</a><a href="./ai-opinion.html">AI opinion</a><a href="./ai-development.html">AI development</a><a href="https://github.com/nifty-site-manager/minify-website">GitHub ↗</a></nav> <div class="themes"><button data-theme-choice="system">System</button><button data-theme-choice="light">Light</button><button data-theme-choice="dark">Dark</button></div> </header> <main> <section class="doc"><aside class="side"> <b>Start</b> <a href="./docs.html">Overview</a> <a href="./getting-started.html">Getting started</a> <a href="./cli.html">CLI</a> <a href="./api.html">C++ API</a> <a href="./formats.html">Formats</a> <b>Design</b> <a href="./architecture.html">Architecture</a> <a href="./performance.html">Performance</a> <b>Evaluation</b> <a href="./battle-tested.html">Battle tested</a> <a href="./production-readiness.html">Production readiness</a> <a href="./ai-opinion.html">AI opinion</a> <a href="./ai-development.html">AI development</a> <a href="https://github.com/nifty-site-manager/minify-website">Website source ↗</a> </aside><article> <p class="ey">Integration · C++17</p> <h1>A seven-function library surface, plus one format dispatcher.</h1> <p class="lead">The public API accepts whole buffers and returns either a complete transformed buffer or a controlled error. File discovery, naming and write policy stay with the caller.</p> <h2>Include and link</h2> <pre><code class="language-cpp">#include &lt;minify/Minify.h&gt;
 
 std::string output;
 std::string error;
 if (!minify::javascript(source, output, error)) {
     // Preserve the original and report error.
-}</code></pre>
-<p>Minify++ is written in C++17. The public header does not expose Nift types or a third-party runtime.</p>
-
-<h2>Format-specific entry points</h2>
-<pre><code class="language-cpp">bool minify::html(input, output, error);
+}</code></pre> <p>Minify++ is written in C++17. The public header does not expose Nift types or a third-party runtime.</p> <h2>Format-specific entry points</h2> <pre><code class="language-cpp">bool minify::html(input, output, error);
 bool minify::css(input, output, error);
 bool minify::javascript(input, output, error);
 bool minify::jsx(input, output, error);
 bool minify::json(input, output, error);
 bool minify::xml(input, output, error);
-bool minify::svg(input, output, error);</code></pre>
-<p>Every entry point has the same shape. A successful call supplies the complete output. A failed call supplies an explanatory error and must not be treated as usable partial output.</p>
-
-<h2>Dispatch by format</h2>
-<pre><code class="language-cpp">minify::Format format;
+bool minify::svg(input, output, error);</code></pre> <p>Every entry point has the same shape. A successful call supplies the complete output. A failed call supplies an explanatory error and must not be treated as usable partial output.</p> <h2>Dispatch by format</h2> <pre><code class="language-cpp">minify::Format format;
 if (!minify::format_for_extension(".css", format)) {
     // Unsupported extension.
 }
 if (!minify::run(format, input, output, error)) {
     // Format-specific failure.
-}</code></pre>
-<p><code>Format</code> contains <code>Html</code>, <code>Css</code>, <code>JavaScript</code>, <code>Jsx</code>, <code>Json</code>, <code>Xml</code> and <code>Svg</code>. The integer <code>minify::format_version</code> is currently <strong>1</strong>; it identifies the supported format/API contract rather than the CLI release number.</p>
-
-<h2>Ownership and concurrency</h2>
-<p>The library is stateless and whole-buffer. Inputs are immutable strings supplied by the caller; output and error strings are caller-owned. No global project state, current directory, build graph or framework configuration is consulted.</p>
-
-<h2>What the library deliberately does not do</h2>
-<ul><li>open, replace or rename files;</li><li>walk directories or infer a build graph;</li><li>compile TypeScript, JSX or Sass;</li><li>bundle, mangle identifiers or tree-shake modules;</li><li>choose whether a failed optimisation should block deployment.</li></ul>
-<p>Those boundaries make embedding predictable. A host can choose its own transaction, logging and failure policy while reusing exactly the same transformation engine tested by the standalone CLI.</p>
-
-<h2>Nift integration</h2>
-<pre><code class="language-plaintext">Nift build engine
+}</code></pre> <p><code>Format</code> contains <code>Html</code>, <code>Css</code>, <code>JavaScript</code>, <code>Jsx</code>, <code>Json</code>, <code>Xml</code> and <code>Svg</code>. The integer <code>minify::format_version</code> is currently <strong>1</strong>; it identifies the supported format/API contract rather than the CLI release number.</p> <h2>Ownership and concurrency</h2> <p>The library is stateless and whole-buffer. Inputs are immutable strings supplied by the caller; output and error strings are caller-owned. No global project state, current directory, build graph or framework configuration is consulted.</p> <h2>What the library deliberately does not do</h2> <ul><li>open, replace or rename files;</li><li>walk directories or infer a build graph;</li><li>compile TypeScript, JSX or Sass;</li><li>bundle, mangle identifiers or tree-shake modules;</li><li>choose whether a failed optimisation should block deployment.</li></ul> <p>Those boundaries make embedding predictable. A host can choose its own transaction, logging and failure policy while reusing exactly the same transformation engine tested by the standalone CLI.</p> <h2>Nift integration</h2> <pre><code class="language-plaintext">Nift build engine
       ↓ configured output extension only
 public Minify++ API
       ↓
-final artifact</code></pre>
-<p>Nift’s copy is protected by an exact synchronization gate covering the implementation, public API and associated contract assets. Minify++ remains independently buildable and testable.</p>
-
-<h2>Integration checklist</h2>
-<ul class="check"><li>Select the format explicitly or validate the extension.</li><li>Keep the original until minification succeeds.</li><li>Treat an error as a failed optimisation, never as partial output.</li><li>Use atomic or recoverable destination replacement where appropriate.</li><li>Retain format-specific regressions for any production defect.</li></ul>
-</article></section>
-</main>
-<footer><strong>Minify++</strong><span>Conservative final-output optimisation, backed by executable evidence.</span><a href="https://github.com/nifty-site-manager/minify-website">Website source ↗</a></footer>
-<script src="assets/js/script.js"></script>
-</body>
-</html>
+final artifact</code></pre> <p>Nift’s copy is protected by an exact synchronization gate covering the implementation, public API and associated contract assets. Minify++ remains independently buildable and testable.</p> <h2>Integration checklist</h2> <ul class="check"><li>Select the format explicitly or validate the extension.</li><li>Keep the original until minification succeeds.</li><li>Treat an error as a failed optimisation, never as partial output.</li><li>Use atomic or recoverable destination replacement where appropriate.</li><li>Retain format-specific regressions for any production defect.</li></ul> </article></section> </main> <footer><strong>Minify++</strong><span>Conservative final-output optimisation, backed by executable evidence.</span><a href="https://github.com/nifty-site-manager/minify-website">Website source ↗</a></footer> <script src="assets/js/script.js"></script> </body> </html>
