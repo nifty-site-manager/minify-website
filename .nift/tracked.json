@@ -21,6 +21,11 @@
       "template": "templates/template.html"
     },
     {
+      "name": "api",
+      "title": "C++ API",
+      "template": "templates/template.html"
+    },
+    {
       "name": "formats",
       "title": "Formats",
       "template": "templates/template.html"
@@ -31,8 +36,18 @@
       "template": "templates/template.html"
     },
     {
+      "name": "performance",
+      "title": "Performance",
+      "template": "templates/template.html"
+    },
+    {
       "name": "battle-tested",
       "title": "Battle tested",
+      "template": "templates/template.html"
+    },
+    {
+      "name": "production-readiness",
+      "title": "Production readiness",
       "template": "templates/template.html"
     },
     {

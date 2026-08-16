@@ -1,4 +1,4 @@
-<div class="doc"><aside class="side"><b>Start</b><a href="@pathto('docs')">Overview</a><a href="@pathto('getting-started')">Getting started</a><a href="@pathto('cli')">CLI</a><a href="@pathto('formats')">Formats</a><b>Design</b><a href="@pathto('architecture')">Architecture</a><b>Evaluation</b><a href="@pathto('battle-tested')">Battle tested</a><a href="@pathto('ai-opinion')">AI opinion</a></aside><article><div class="ey">Reference</div><h1>Formats and preservation rules</h1>
+<div class="doc">@input("templates/sidebar.html")<article><div class="ey">Reference</div><h1>Formats and preservation rules</h1>
 <p class="lead">“Minify” is not one algorithm. Whitespace and comments have different meanings in HTML, CSS, JavaScript, JSON and XML, so Minify++ has a separate conservative mode for each syntax family.</p>
 <h2>JavaScript</h2>
 <p>JavaScript requires lexical context. Minify++ tracks strings, templates, regex literals, comments, delimiters and statement boundaries so it can distinguish cases such as regex versus division and preserve semantics around automatic semicolon insertion.</p>
@@ -18,4 +18,8 @@ const msg = `value: ${ratio}`;</code></pre>
 <p>XML/SVG preserve namespaces, entities, CDATA and meaningful text spacing. SVG is XML-like but adds plenty of attribute-heavy real-world input, so paths, namespaced attributes and preserved text have dedicated tests.</p>
 <h2>What is deliberately absent</h2>
 <p>Sass/SCSS, TypeScript and TSX compilation remain external because they are source-language transforms, not final-artifact minification. If a source format compiles to CSS or JavaScript, run that compiler first and Minify++ second.</p>
+<h2>Format contract at a glance</h2>
+<div class="table-wrap"><table><thead><tr><th>Mode</th><th>Primary strategy</th><th>Notable preservation boundary</th></tr></thead><tbody><tr><td>HTML</td><td>context-aware lexical scan</td><td>mixed text and raw-text bodies</td></tr><tr><td>CSS</td><td>token-aware lexical scan</td><td>delimiter-sensitive separation and strings</td></tr><tr><td>JavaScript</td><td>lexical/context scanner</td><td>ASI, regex/division and templates</td></tr><tr><td>JSX</td><td>JS + markup-aware scan</td><td>nested expressions and TSX-aware boundaries</td></tr><tr><td>JSON</td><td>structural parser</td><td>string values and validity</td></tr><tr><td>XML</td><td>conservative lexical scan</td><td>CDATA, entities and meaningful text</td></tr><tr><td>SVG</td><td>conservative XML-like scan</td><td>text and attribute-heavy content</td></tr></tbody></table></div>
+<h2>Unknown and future syntax</h2>
+<p>Minify++ prefers preservation over guessing. Supporting a filename extension is not permission to rewrite every construct that future standards may introduce. Confirmed new syntax should arrive with a minimal example, neighboring counterexamples, the strongest available oracle and a retained regression.</p>
 </article></div>

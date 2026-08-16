@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" data-theme="system">
+<head>
+<title>Minify++ — Production readiness</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Minify++: conservative multi-format final-output minification."><meta name="color-scheme" content="light dark"><link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header>
+  <a class="brand" href="./"><i>M+</i>Minify++</a>
+  <nav><a href="./docs.html">Docs</a><a href="./battle-tested.html">Evidence</a><a href="./production-readiness.html">Production status</a><a href="./ai-opinion.html">AI opinion</a></nav>
+  <div class="themes"><button data-theme-choice="system">System</button><button data-theme-choice="light">Light</button><button data-theme-choice="dark">Dark</button></div>
+</header>
+<main>
+<section class="doc"><aside class="side">
+                       <b>Start</b>
+                       <a href="./docs.html">Overview</a>
+                       <a href="./getting-started.html">Getting started</a>
+                       <a href="./cli.html">CLI</a>
+                       <a href="./api.html">C++ API</a>
+                       <a href="./formats.html">Formats</a>
+                       <b>Design</b>
+                       <a href="./architecture.html">Architecture</a>
+                       <a href="./performance.html">Performance</a>
+                       <b>Evaluation</b>
+                       <a href="./battle-tested.html">Battle tested</a>
+                       <a href="./production-readiness.html">Production readiness</a>
+                       <a href="./ai-opinion.html">AI opinion</a>
+                     </aside><article>
+<p class="ey">Production assessment</p>
+<h1>Is Minify++ production-grade?</h1>
+<p class="lead">Yes—for deliberate use within its documented conservative API, CLI and seven-format contract on the directly validated Linux toolchain. The decision is <strong>PASS WITH KNOWN LIMITATIONS</strong>.</p>
+
+<div class="verdict"><strong>Production-grade, scoped.</strong><span>Ship it where the documented contract matches the workload. Do not market it as a validating parser, universal optimizer or proven cross-platform binary without the corresponding evidence.</span></div>
+
+<h2>Why the answer is yes</h2>
+<ul class="check"><li>All direct correctness, semantic, cross-format, CLI and Nift integration suites pass.</li><li>15,459 generated JavaScript programs execute before and after minification with equivalent observed behavior.</li><li>180 JSX/TSX programs pass reference parsing and idempotence checks.</li><li>111 non-JavaScript documents exercise HTML, CSS, JSON, XML and SVG contracts.</li><li>70,000 deterministic mutations pass across all seven format modes.</li><li>ASan, UBSan and LeakSanitizer found no issue in the completed release-like validation.</li><li>Clean archived source builds and runs the complete test wall.</li><li>The standalone and Nift-embedded implementations pass an exact 19-file synchronization gate.</li><li>Performance and peak-memory measurements provide a repeatable regression reference.</li><li>Public limitations are documented rather than obscured by broad compatibility language.</li></ul>
+
+<h2>The fuzz campaign materially changed the assessment</h2>
+<p>Fuzzing did not merely run and report green. It first found three genuine token-manufacturing families:</p>
+<pre><code class="language-plaintext">CSS       / * or * /       → accidental comment delimiter
+JSX       &lt; name            → JSX-significant opener
+HTML/XML  separated prefix → &lt;!-- or &lt;![CDATA[</code></pre>
+<p>Each finding paused the broader campaign. The reproducer was minimized, the neighboring behavioral family was tested, the boundary logic was fixed, and focused regressions were retained. Only then did the same campaign resume and reach 70,000 successful mutations.</p>
+
+<h2>A permanent self-consistency invariant</h2>
+<pre><code class="language-plaintext">minify(input) succeeds
+        ↓
+output = transformed artifact
+        ↓
+minify(output) must not reject output</code></pre>
+<p>This does not claim that every format always reaches a byte-identical fixed point after one pass. Strict idempotence is a stronger, separate contract. Second-pass acceptance protects the more fundamental promise that Minify++ does not emit text outside its own supported language.</p>
+
+<h2>Known limitations</h2>
+<ul><li><strong>Platforms:</strong> this assessment directly validates Linux x86-64. macOS and Windows remain explicit evidence gaps.</li><li><strong>XML/SVG:</strong> these are conservative lexical modes, not complete validating XML parsers.</li><li><strong>Embedded languages:</strong> HTML raw script/style bodies and JavaScript template contents are preserved rather than recursively minified.</li><li><strong>TypeScript:</strong> there is no general TypeScript input mode. JSX has tested TSX-aware boundaries but Minify++ does not compile TS.</li><li><strong>Finite evidence:</strong> large differential and fuzz corpora increase confidence; they do not prove all future syntax.</li><li><strong>Performance:</strong> current figures are host/fixture regression references, not universal promises.</li><li><strong>Filesystem durability:</strong> staged replacement is recoverable, but there is no claim of power-loss durability or ownership/timestamp preservation.</li></ul>
+
+<h2>What would reopen the decision?</h2>
+<p>A supported input changing meaning, a crash/hang or unbounded-growth case, a scanner change without equivalent adversarial evidence, drift between standalone and embedded copies, a regression in file replacement, a failed clean-package build, or public claims expanding beyond tested platforms would all require reassessment.</p>
+
+<h2>The candid conclusion</h2>
+<p>Minify++ is not production-grade because it has many features. It is production-grade because its job is bounded, its failure behavior is controlled, its implementation survived meaningful adversarial testing, real findings were fixed at the family level, and the final claims match the evidence. That status is maintained—not permanent by ceremony.</p>
+<p><a class="btn hot" href="./getting-started.html">Build Minify++</a> <a class="btn" href="./battle-tested.html">Inspect the test evidence</a></p>
+</article></section>
+</main>
+<footer><strong>Minify++</strong><span>Conservative final-output optimisation, backed by executable evidence.</span></footer>
+<script src="assets/js/script.js"></script>
+</body>
+</html>

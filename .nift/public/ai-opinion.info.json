@@ -9,10 +9,12 @@
   "dependencies": [
     "content/ai-opinion.html",
     "templates/head.html",
+    "templates/sidebar.html",
     "templates/template.html"
   ],
   "reqs": [
     "public/ai-opinion.html",
+    "public/api.html",
     "public/architecture.html",
     "public/assets/css/style.css",
     "public/assets/js/script.js",
@@ -21,6 +23,8 @@
     "public/docs.html",
     "public/formats.html",
     "public/getting-started.html",
-    "public/index.html"
+    "public/index.html",
+    "public/performance.html",
+    "public/production-readiness.html"
   ]
 }

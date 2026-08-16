@@ -1,13 +1,13 @@
 {
-  "name": "battle-tested",
-  "title": "Battle tested",
+  "name": "production-readiness",
+  "title": "Production readiness",
   "template": "templates/template.html",
-  "content": "content/battle-tested.html",
-  "output": "public/battle-tested.html",
+  "content": "content/production-readiness.html",
+  "output": "public/production-readiness.html",
   "minify": false,
   "minify-version": 0,
   "dependencies": [
-    "content/battle-tested.html",
+    "content/production-readiness.html",
     "templates/head.html",
     "templates/sidebar.html",
     "templates/template.html"

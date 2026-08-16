@@ -28,6 +28,12 @@ Current identity is Minify++ 1.1.0; Sift is historical. Audit any old branding.
 Minify++ is standalone. Nift consumes its public API for explicitly configured
 final-output minification; Minify++ does not depend on Nift.
 
+The 2026-08 content checkpoint expands the site from eight to eleven pages. In
+addition to getting-started, CLI, formats, architecture, test evidence, and AI
+evaluation, it now owns dedicated C++ API, performance, and production-readiness
+references. `templates/sidebar.html` is the canonical documentation navigation;
+do not reintroduce eleven divergent inline copies.
+
 ## Truthfulness and evidence
 
 Correctness is at least as important as speed/output size. Explain conservative
@@ -76,6 +82,13 @@ The 2026-08-16 product assessment is **PASS WITH KNOWN LIMITATIONS** for the
 documented conservative contract on directly validated Linux x86-64. The site may
 state that scoped decision only while it also preserves the explicit macOS/Windows,
 XML/SVG validation, finite-corpus, and host-specific benchmark limitations.
+
+The production-readiness page is the canonical public explanation of that
+decision. Keep its evidence wall, limitations, downgrade triggers, and assessment
+date synchronized with the standalone product's
+`docs/handover/PRODUCTION-READINESS.md`. The performance page owns the public
+host-specific benchmark table and must be refreshed whenever the retained
+benchmark reference changes.
 
 This roadmap and handover are living infrastructure. Review them at every
 substantial Minify++ or website checkpoint. Correct/reorganize obsolete guidance,

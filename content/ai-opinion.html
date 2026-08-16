@@ -1,9 +1,9 @@
-<section class="doc"><aside class="side"><b>Start</b><a href="@pathto('docs')">Overview</a><a href="@pathto('getting-started')">Getting started</a><a href="@pathto('cli')">CLI</a><a href="@pathto('formats')">Formats</a><b>Design</b><a href="@pathto('architecture')">Architecture</a><b>Evaluation</b><a href="@pathto('battle-tested')">Battle tested</a><a href="@pathto('ai-opinion')">AI opinion</a></aside><article>
+<section class="doc">@input("templates/sidebar.html")<article>
 <p class="ey">Evaluation · written after implementing and stress-testing Minify++</p>
 <h1>AI opinion: where Minify++ is unusually good, and where it deliberately stops.</h1>
 <p class="lead">Minify++ is much more interesting to me now than “a small minifier written in C++”. Its strongest property is that it has a narrow job, a conservative architecture, and an increasingly serious body of evidence that the transformations preserve meaning. That combination is rarer than raw compression tricks.</p>
 
-<div class="call"><strong>Current assessment.</strong> I would be comfortable using Minify++ as an optional final-output optimiser in a static build pipeline today, with the normal qualification that no minifier can prove semantic equivalence for every future program. I would not describe it as a replacement for a compiler, bundler, tree-shaker or source-language transform—and I think resisting those roles makes the project better.</div>
+<div class="call"><strong>Current assessment: production-grade, scoped.</strong> I would ship Minify++ where its documented conservative format/API/CLI contract matches the workload. That judgment is directly supported on Linux x86-64 and carries explicit limits; it is not a claim that Minify++ replaces a compiler, bundler, tree-shaker, validating parser or platform-specific release process.</div>
 
 <h2>My current ratings</h2>
 <div class="score"><span>Architectural focus</span><div class="bar"><i style="width:98%"></i></div><strong>9.8</strong></div>
@@ -41,7 +41,7 @@
 <h2>The Nift relationship is a good architecture test</h2>
 <p>Nift embedding Minify++ without Minify++ depending on Nift is exactly the dependency direction I want. The standalone project has its own public header, CLI, build and tests. Nift gets a convenience optimisation feature, while Minify++ remains usable in a completely unrelated pipeline:</p>
 <pre><code class="language-bash">nift build
-minify output/</code></pre>
+minify public/index.html public/assets/site.css public/assets/app.js</code></pre>
 <p>That also validates one of Nift's architectural rules: Nift may perform optional final-output optimisation, while source-language compilation remains external. Minify++ fits because it consumes final artifacts rather than taking ownership of the source toolchain.</p>
 
 <h2>What I would resist adding</h2>
@@ -53,6 +53,11 @@ minify output/</code></pre>
 <h2>AI DX is quietly strong</h2>
 <p>Minify++ is unusually easy for an AI coding agent to reason about because the contract is small and the failure oracle is strong. An agent can propose an ambiguity, add a minimal reproducer, compare original/minified semantics or parser acceptance, and retain the reproducer. It does not need to understand a plugin graph or framework lifecycle before contributing useful tests.</p>
 <p>That does not make AI-generated changes automatically trustworthy. It makes the project structurally friendly to the workflow that makes AI useful: generate hypotheses quickly, then force them through deterministic tests.</p>
+
+<h2>Do I consider it production-grade?</h2>
+<p><strong>Yes, with a scoped contract: PASS WITH KNOWN LIMITATIONS.</strong> My confidence comes from the complete evidence wall rather than the label. Direct and generated format tests pass; 15,459 JavaScript programs are executed differentially; 180 JSX/TSX fixtures pass parser and idempotence gates; 111 non-JavaScript documents protect their format contracts; 70,000 deterministic mutations pass; sanitizer and clean-package validation are green; the CLI has recoverable staged writes; and the Nift copy is mechanically synchronized.</p>
+<p>The fuzz campaign matters especially because it found real CSS, JSX and HTML/XML token-manufacturing defects before going green. The architecture did not need to be discarded: the defects had understandable format-specific causes, family-level fixes and permanent regressions. That changed my view from “promising compact scanner” to “credible production systems tool for its stated job”.</p>
+<p>The limitations remain part of the answer. macOS and Windows were not directly validated in this assessment. XML/SVG are lexical rather than validating modes. TypeScript compilation, AST optimization, mangling, bundling and tree shaking are outside scope. The corpora are finite, and benchmark results are host-specific. I would downgrade the judgment if public promises grew without matching evidence.</p>
 
 <h2>Where I land</h2>
 <p>I now see Minify++ as a credible small systems tool rather than merely a Nift feature that happened to become reusable. Its ceiling should not be “how many features can we copy from a JavaScript minifier?” The more interesting goal is: <strong>how much safe final-output optimisation can a tiny, fast, dependency-light native tool provide while remaining understandable?</strong></p>
