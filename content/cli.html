@@ -9,7 +9,7 @@
 <h2>In-place mode</h2>
 <pre><code class="language-bash">minify --in-place public/app.js
 minify -i public/app.js</code></pre>
-<p>The write path is intentionally separate from the transformation path: malformed input should fail without replacing the source with partial output.</p>
+<p>The write path is intentionally separate from the transformation path. Minify++ prepares a complete sibling temporary output before replacing an existing regular file, preserves its permission bits and rejects symbolic-link destinations. Malformed input or a failed temporary write therefore does not truncate the previous file.</p>
 <h2>Multiple files</h2>
 <pre><code class="language-bash">minify index.html assets/site.css assets/app.js data/catalog.json</code></pre>
 <p>Each file is minified according to its own extension. A failure is attributed to the file that could not be processed.</p>
