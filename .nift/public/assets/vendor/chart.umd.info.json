@@ -1,0 +1,14 @@
+{
+  "name": "assets/vendor/chart.umd",
+  "title": "Chart.js 4.5.1",
+  "template": "templates/asset.txt",
+  "content": "content/assets/vendor/chart.umd.js",
+  "output": "public/assets/vendor/chart.umd.js",
+  "minify": true,
+  "minify-version": 1,
+  "dependencies": [
+    "content/assets/vendor/chart.umd.js",
+    "templates/asset.txt"
+  ],
+  "reqs": []
+}

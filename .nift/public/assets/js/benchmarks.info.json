@@ -1,0 +1,14 @@
+{
+  "name": "assets/js/benchmarks",
+  "title": "Benchmark charts",
+  "template": "templates/asset.txt",
+  "content": "content/assets/js/benchmarks.js",
+  "output": "public/assets/js/benchmarks.js",
+  "minify": true,
+  "minify-version": 1,
+  "dependencies": [
+    "content/assets/js/benchmarks.js",
+    "templates/asset.txt"
+  ],
+  "reqs": []
+}

@@ -295,3 +295,12 @@ promise unsupported JS/CSS/HTML
 ## 2026-08-18 — Benchmarks page and methodology split
 
 Added a dedicated Benchmarks page, navigation entry and cross-links from Performance/Docs. The page reports Minify++ output on three public CSS fixtures against the output sizes published by Lightning CSS for esbuild/Lightning CSS, while keeping local Minify++ timing separate because the competitor timing environment/API boundary is different. It also documents the Nift adapter prepared for the privatenumber JavaScript benchmark and refuses to invent an upstream rank before an actual run.
+
+The follow-up checkpoint completed that measurement rather than leaving the
+adapter aspirational. The page now leads with the i7-12700H host/methodology,
+same-host current CSS versions and exact latency/size tables, then reports Nift's
+complete 12-artifact upstream JavaScript run. Locally vendored Chart.js 4.5.1
+adds responsive charts without replacing the tables. The published interpretation
+keeps the unflattering evidence: Lightning CSS made every CSS fixture smaller,
+Nift ranked last under the upstream size-heavy score, large JavaScript artifacts
+exposed latency growth, and unavailable/failed competitors remain disclosed.

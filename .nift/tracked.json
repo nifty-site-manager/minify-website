@@ -78,6 +78,20 @@
       "template": "templates/asset.txt",
       "content-ext": ".js",
       "output-ext": ".js"
+    },
+    {
+      "name": "assets/js/benchmarks",
+      "title": "Benchmark charts",
+      "template": "templates/asset.txt",
+      "content-ext": ".js",
+      "output-ext": ".js"
+    },
+    {
+      "name": "assets/vendor/chart.umd",
+      "title": "Chart.js 4.5.1",
+      "template": "templates/asset.txt",
+      "content-ext": ".js",
+      "output-ext": ".js"
     }
   ]
 }

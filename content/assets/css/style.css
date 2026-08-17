@@ -64,6 +64,9 @@ footer{border-top:1px solid var(--line);display:flex;justify-content:space-betwe
 .facts div{display:flex;flex-direction:column;background:var(--card);padding:18px}
 .facts span{color:var(--mut)}
 .table-wrap{overflow-x:auto;margin:24px 0}
+.chart{height:390px;margin:24px 0;padding:16px;background:var(--card);border:1px solid var(--line)}
+.chart.tall{height:500px}
+.chart canvas{max-width:100%}
 table{width:100%;border-collapse:collapse;background:var(--card)}
 th,td{text-align:left;padding:12px 14px;border:1px solid var(--line)}
 th{font:700 0.75rem ui-monospace,monospace;text-transform:uppercase;color:var(--a)}
@@ -87,4 +90,6 @@ article ol{color:var(--mut)}
 header{gap:12px}
 .themes button{font-size:.72rem}
 footer{gap:20px;flex-direction:column}
+.chart{height:330px;padding:8px}
+.chart.tall{height:430px}
 }

@@ -119,3 +119,16 @@ and the living roadmap.
 `content/benchmarks.html` is now the canonical cross-tool benchmark page. Keep it distinct from `content/performance.html`: Performance owns Minify++'s host-specific in-process regression gate; Benchmarks owns competitor context, exact fixture/output comparisons and methodology caveats. The first CSS comparison uses the GoalSmashers Bootstrap 4, Animate.css and Tailwind fixtures and published esbuild/Lightning CSS output sizes from the Lightning CSS project. Do not present their published timings as same-host speed ratios against Minify++.
 
 The JavaScript section records the prepared Nift adapter for `privatenumber/minification-benchmarks` and a local byte-equivalence integration probe, but intentionally does not claim an upstream Nift ranking until the actual upstream suite runs. Preserve that distinction when updating the page.
+
+The definitive 2026-08-18 update replaces that provisional state with measured
+same-host evidence. CSS tables/charts use the raw 45-sample Minify++ repository
+snapshot. JavaScript tables/charts use the filtered upstream snapshot at commit
+`fe89864f…`, label Nift as an integrated CLI boundary, and disclose that Nift
+ranked last under the upstream size-heavy score despite passing all integrity
+checks. Keep every exact value available without JavaScript.
+
+Chart.js 4.5.1 is pinned under `content/assets/vendor/`; its MIT license is kept
+beside the asset. `content/assets/js/benchmarks.js` contains chart data derived
+from the retained repository JSON. Charts are progressive enhancement and must
+never become the sole evidence. When benchmark JSON changes, reconcile the
+script, exact HTML tables and explanatory claims together.
