@@ -312,3 +312,8 @@ Normalized the Minify++ website to the same public documentation shape used by n
 ## 2026-08-18 — Architectural comparisons
 
 Added `/docs/comparisons.html` as a decision-oriented comparison of Minify++ with Lightning CSS, esbuild, SWC, Terser and html-minifier-terser. The page separates architectural scope from measured benchmark evidence, calls out Minify++'s weaker AST/semantic optimization explicitly, and explains when using a specialist compiler/minifier is the better choice.
+
+## 2026-08-18 — Comparison framing revision
+
+- Reworked `docs/comparisons` so the table and tool-by-tool sections lead with strengths, weaknesses and scope differences rather than winner/loser language.
+- Added explicit weaknesses to the table and retained contextual fit guidance for cases where a specialist or Minify++ is the more appropriate tool.
