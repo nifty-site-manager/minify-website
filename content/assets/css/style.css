@@ -93,3 +93,13 @@ footer{gap:20px;flex-direction:column}
 .chart{height:330px;padding:8px}
 .chart.tall{height:430px}
 }
+/* Inline links stay visibly distinct from surrounding copy. Navigation, cards and buttons keep their own affordances. */
+article a:not(.btn), .wide p a, .wide li a, .wide td a, footer a{color:var(--a);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+article a:not(.btn):hover, .wide p a:hover, .wide li a:hover, .wide td a:hover, footer a:hover{text-decoration-thickness:2px}
+.comparison-doc{max-width:1460px;grid-template-columns:210px minmax(0,1160px)}
+.comparison-doc article{max-width:none}
+.comparison-table{min-width:1080px}
+.comparison-table th:nth-child(1){width:13%}
+.comparison-table th:nth-child(2){width:23%}
+.comparison-table th:nth-child(3),.comparison-table th:nth-child(4){width:32%}
+@media (max-width:800px){.comparison-doc{grid-template-columns:1fr}.comparison-table{min-width:980px}}
