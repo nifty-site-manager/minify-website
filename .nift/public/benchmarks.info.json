@@ -1,13 +1,13 @@
 {
-  "name": "docs",
-  "title": "Docs",
+  "name": "benchmarks",
+  "title": "Benchmarks",
   "template": "templates/template.html",
-  "content": "content/docs.html",
-  "output": "public/docs.html",
+  "content": "content/benchmarks.html",
+  "output": "public/benchmarks.html",
   "minify": true,
   "minify-version": 1,
   "dependencies": [
-    "content/docs.html",
+    "content/benchmarks.html",
     "templates/head.html",
     "templates/sidebar.html",
     "templates/template.html"

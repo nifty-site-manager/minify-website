@@ -41,6 +41,11 @@
       "template": "templates/template.html"
     },
     {
+      "name": "benchmarks",
+      "title": "Benchmarks",
+      "template": "templates/template.html"
+    },
+    {
       "name": "battle-tested",
       "title": "Battle tested",
       "template": "templates/template.html"

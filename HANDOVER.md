@@ -39,7 +39,7 @@ Current identity is Minify++ 1.1.0; Sift is historical. Audit any old branding.
 Minify++ is standalone. Nift consumes its public API for explicitly configured
 final-output minification; Minify++ does not depend on Nift.
 
-The 2026-08 content checkpoint expands the site from eight to eleven pages. In
+The 2026-08 content checkpoint now includes a dedicated benchmark reference alongside the existing product and evidence pages. In
 addition to getting-started, CLI, formats, architecture, test evidence, and AI
 evaluation, it now owns dedicated C++ API, performance, and production-readiness
 references. `templates/sidebar.html` is the canonical documentation navigation;
@@ -113,3 +113,9 @@ Detailed Minify++ website history lives at
 `docs/handover/PROJECT-HISTORY.md`, including naming history,
 correctness/benchmark communication, development flow, production-support gates,
 and the living roadmap.
+
+## Benchmark documentation checkpoint (2026-08-18)
+
+`content/benchmarks.html` is now the canonical cross-tool benchmark page. Keep it distinct from `content/performance.html`: Performance owns Minify++'s host-specific in-process regression gate; Benchmarks owns competitor context, exact fixture/output comparisons and methodology caveats. The first CSS comparison uses the GoalSmashers Bootstrap 4, Animate.css and Tailwind fixtures and published esbuild/Lightning CSS output sizes from the Lightning CSS project. Do not present their published timings as same-host speed ratios against Minify++.
+
+The JavaScript section records the prepared Nift adapter for `privatenumber/minification-benchmarks` and a local byte-equivalence integration probe, but intentionally does not claim an upstream Nift ranking until the actual upstream suite runs. Preserve that distinction when updating the page.

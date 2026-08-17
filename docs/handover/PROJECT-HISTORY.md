@@ -291,3 +291,7 @@ promise unsupported JS/CSS/HTML
 
 ---
 
+
+## 2026-08-18 — Benchmarks page and methodology split
+
+Added a dedicated Benchmarks page, navigation entry and cross-links from Performance/Docs. The page reports Minify++ output on three public CSS fixtures against the output sizes published by Lightning CSS for esbuild/Lightning CSS, while keeping local Minify++ timing separate because the competitor timing environment/API boundary is different. It also documents the Nift adapter prepared for the privatenumber JavaScript benchmark and refuses to invent an upstream rank before an actual run.
