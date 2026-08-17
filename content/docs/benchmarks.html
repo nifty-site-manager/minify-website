@@ -43,7 +43,7 @@
 <p>A same-corpus D3 probe produced byte-identical standalone Minify++ and Nift output: 415,104 bytes with SHA-256 <code>983e7584494c44d7e4bfe454cf99acbdd46a9545591026b9607f73642011fcb1</code>. Nift is therefore not a separate minification engine.</p>
 
 <h2>Limitations and failures</h2>
-<ul><li>JShrink was not run because PHP and Composer were unavailable; stale upstream repository values were excluded.</li><li>Google Closure Compiler failed because Java was unavailable.</li><li>Babel Minify failed or hit the upstream timeout on several larger artifacts; UglifyJS timed out on TypeScript.</li><li>CSS CLI measurements include process startup. They must not be merged with the in-process results on the <a href="@pathto('performance')">Performance</a> page.</li><li>These are one-host, one-date measurements—not universal speed or compression claims.</li></ul>
+<ul><li>JShrink was not run because PHP and Composer were unavailable; stale upstream repository values were excluded.</li><li>Google Closure Compiler failed because Java was unavailable.</li><li>Babel Minify failed or hit the upstream timeout on several larger artifacts; UglifyJS timed out on TypeScript.</li><li>CSS CLI measurements include process startup. They must not be merged with the in-process results on the <a href="@pathto('docs/performance')">Performance</a> page.</li><li>These are one-host, one-date measurements—not universal speed or compression claims.</li></ul>
 
 <h2>Reproduce it</h2>
 <pre><code class="language-bash">python3 benchmarks/run_css_competitive.py \

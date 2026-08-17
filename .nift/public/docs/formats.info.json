@@ -1,14 +1,15 @@
 {
-  "name": "/",
-  "title": "Fast conservative minification",
+  "name": "docs/formats",
+  "title": "Formats",
   "template": "templates/template.html",
-  "content": "content/index.html",
-  "output": "public/index.html",
+  "content": "content/docs/formats.html",
+  "output": "public/docs/formats.html",
   "minify": true,
   "minify-version": 1,
   "dependencies": [
-    "content/index.html",
+    "content/docs/formats.html",
     "templates/head.html",
+    "templates/sidebar.html",
     "templates/template.html"
   ],
   "reqs": [
@@ -18,10 +19,13 @@
     "public/docs/ai-development.html",
     "public/docs/ai-opinion.html",
     "public/docs/api.html",
+    "public/docs/architecture.html",
     "public/docs/battle-tested.html",
+    "public/docs/benchmarks.html",
     "public/docs/cli.html",
     "public/docs/formats.html",
     "public/docs/getting-started.html",
+    "public/docs/performance.html",
     "public/docs/production-readiness.html",
     "public/index.html"
   ]

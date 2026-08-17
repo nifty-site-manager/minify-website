@@ -132,3 +132,11 @@ beside the asset. `content/assets/js/benchmarks.js` contains chart data derived
 from the retained repository JSON. Charts are progressive enhancement and must
 never become the sole evidence. When benchmark JSON changes, reconcile the
 script, exact HTML tables and explanatory claims together.
+
+## Documentation URL layout
+
+The homepage remains `/index.html` and the documentation landing page remains
+`/docs.html`, matching nift.dev. All secondary documentation/evidence/design pages
+live under `/docs/*.html`, even when a page does not use a docs-specific template.
+Keep tracked names, `@pathto(...)` references, authored content paths, and generated
+output aligned with this rule when adding or renaming pages.
