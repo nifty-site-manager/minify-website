@@ -98,8 +98,11 @@ article a:not(.btn), .wide p a, .wide li a, .wide td a, footer a{color:var(--a);
 article a:not(.btn):hover, .wide p a:hover, .wide li a:hover, .wide td a:hover, footer a:hover{text-decoration-thickness:2px}
 .comparison-doc{max-width:1460px;grid-template-columns:210px minmax(0,1160px)}
 .comparison-doc article{max-width:none}
-.comparison-table{min-width:1080px}
-.comparison-table th:nth-child(1){width:13%}
-.comparison-table th:nth-child(2){width:23%}
-.comparison-table th:nth-child(3),.comparison-table th:nth-child(4){width:32%}
-@media (max-width:800px){.comparison-doc{grid-template-columns:1fr}.comparison-table{min-width:980px}}
+.comparison-table{width:100%;min-width:0;table-layout:fixed}
+.comparison-table th:nth-child(1){width:14%}
+.comparison-table th:nth-child(2){width:24%}
+.comparison-table th:nth-child(3){width:27%}.comparison-table th:nth-child(4){width:35%}
+@media (max-width:800px){.comparison-doc{grid-template-columns:1fr}}
+
+.comparison-table th,.comparison-table td{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:760px){.comparison-table{min-width:760px}}
