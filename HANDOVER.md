@@ -144,3 +144,8 @@ output aligned with this rule when adding or renaming pages.
 ## Comparison guide checkpoint (2026-08-18)
 
 `content/docs/comparisons.html` is the canonical architectural comparison page. It explains Minify++ beside Lightning CSS, esbuild, SWC, Terser and html-minifier-terser. Keep this page distinct from Benchmarks: comparisons own scope/architecture/decision trade-offs; Benchmarks owns measured performance and output-size evidence. Do not turn low AST/semantic-optimization breadth into a feature request by default, and do not hide cases where specialist tools compress more aggressively.
+
+## Desktop table-fit checkpoint (2026-08-18)
+
+- Documentation content width is intentionally large enough for benchmark/comparison tables. On desktop, table cells wrap inside the available column instead of forcing horizontal scrolling; narrow-screen scrolling remains a fallback.
+- The site-wide rendered table audit covers all Minify++ generated tables together with the sibling sites at 1024–1920 px desktop widths. Keep this invariant when adding benchmark columns.

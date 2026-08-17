@@ -28,7 +28,7 @@ h1,h2{letter-spacing:-.05em;line-height:1.05}
 .stat{border-top:1px solid var(--line);padding:24px 10px}
 .stat strong{font-size:2rem;display:block}
 .stat span{font:600 0.72rem ui-monospace;color:var(--mut);text-transform:uppercase}
-.doc{max-width:1120px;margin:auto;padding:55px 5vw;display:grid;grid-template-columns:210px minmax(0,780px);gap:55px}
+.doc{max-width:1280px;margin:auto;padding:55px 4vw;display:grid;grid-template-columns:210px minmax(0,950px);gap:55px}
 .side{position:sticky;top:90px;align-self:start}
 .side,article{min-width:0}
 .side b{display:block;color:var(--a);font:700 0.72rem ui-monospace;margin:18px 0 6px;text-transform:uppercase}
@@ -106,3 +106,11 @@ article a:not(.btn):hover, .wide p a:hover, .wide li a:hover, .wide td a:hover, 
 
 .comparison-table th,.comparison-table td{overflow-wrap:anywhere;word-break:normal}
 @media(max-width:760px){.comparison-table{min-width:760px}}
+
+/* Keep every documentation table inside a normal desktop viewport; scroll only on narrow screens. */
+th,td{overflow-wrap:anywhere;word-break:normal}
+@media (min-width:801px){
+  .table-wrap{overflow-x:visible}
+  .table-wrap table{width:100%;max-width:100%;table-layout:fixed;font-size:.92rem}
+  .table-wrap td code,.table-wrap th code{white-space:normal;overflow-wrap:anywhere}
+}

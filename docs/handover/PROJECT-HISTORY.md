@@ -317,3 +317,7 @@ Added `/docs/comparisons.html` as a decision-oriented comparison of Minify++ wit
 
 - Reworked `docs/comparisons` so the table and tool-by-tool sections lead with strengths, weaknesses and scope differences rather than winner/loser language.
 - Added explicit weaknesses to the table and retained contextual fit guidance for cases where a specialist or Minify++ is the more appropriate tool.
+
+## 2026-08-18 — Desktop table fit
+
+Widened the documentation content area and made comparison/benchmark tables wrap within normal desktop viewports rather than retaining a permanent horizontal scrollbar. Mobile/narrow-screen overflow remains available where four-to-six columns cannot remain readable.
