@@ -36,6 +36,11 @@
       "template": "templates/template.html"
     },
     {
+      "name": "docs/comparisons",
+      "title": "Comparisons",
+      "template": "templates/template.html"
+    },
+    {
       "name": "docs/performance",
       "title": "Performance",
       "template": "templates/template.html"

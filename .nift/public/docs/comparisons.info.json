@@ -1,13 +1,13 @@
 {
-  "name": "docs/ai-opinion",
-  "title": "AI opinion",
+  "name": "docs/comparisons",
+  "title": "Comparisons",
   "template": "templates/template.html",
-  "content": "content/docs/ai-opinion.html",
-  "output": "public/docs/ai-opinion.html",
+  "content": "content/docs/comparisons.html",
+  "output": "public/docs/comparisons.html",
   "minify": true,
   "minify-version": 1,
   "dependencies": [
-    "content/docs/ai-opinion.html",
+    "content/docs/comparisons.html",
     "templates/head.html",
     "templates/sidebar.html",
     "templates/template.html"

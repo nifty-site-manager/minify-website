@@ -308,3 +308,7 @@ exposed latency growth, and unavailable/failed competitors remain disclosed.
 ## 2026-08-18 — Documentation URL normalization
 
 Normalized the Minify++ website to the same public documentation shape used by nift.dev: `/docs.html` remains the landing page and every secondary documentation, evidence, AI and design page now lives under `/docs/*.html`. Authored content moved under `content/docs/`, tracked names and `@pathto(...)` references were reconciled, stale root-level generated pages/metadata were removed, and current GitHub links were aligned with the `nift-dev` organization.
+
+## 2026-08-18 — Architectural comparisons
+
+Added `/docs/comparisons.html` as a decision-oriented comparison of Minify++ with Lightning CSS, esbuild, SWC, Terser and html-minifier-terser. The page separates architectural scope from measured benchmark evidence, calls out Minify++'s weaker AST/semantic optimization explicitly, and explains when using a specialist compiler/minifier is the better choice.

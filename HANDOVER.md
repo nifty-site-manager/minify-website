@@ -140,3 +140,7 @@ The homepage remains `/index.html` and the documentation landing page remains
 live under `/docs/*.html`, even when a page does not use a docs-specific template.
 Keep tracked names, `@pathto(...)` references, authored content paths, and generated
 output aligned with this rule when adding or renaming pages.
+
+## Comparison guide checkpoint (2026-08-18)
+
+`content/docs/comparisons.html` is the canonical architectural comparison page. It explains Minify++ beside Lightning CSS, esbuild, SWC, Terser and html-minifier-terser. Keep this page distinct from Benchmarks: comparisons own scope/architecture/decision trade-offs; Benchmarks owns measured performance and output-size evidence. Do not turn low AST/semantic-optimization breadth into a feature request by default, and do not hide cases where specialist tools compress more aggressively.
