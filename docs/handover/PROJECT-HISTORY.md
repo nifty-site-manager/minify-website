@@ -321,3 +321,7 @@ Added `/docs/comparisons.html` as a decision-oriented comparison of Minify++ wit
 ## 2026-08-18 — Desktop table fit
 
 Widened the documentation content area and made comparison/benchmark tables wrap within normal desktop viewports rather than retaining a permanent horizontal scrollbar. Mobile/narrow-screen overflow remains available where four-to-six columns cannot remain readable.
+
+## 2026-08-18 — Memory/resource-safety living documentation
+
+Added a dedicated Memory & resource safety documentation page and linked it from Battle Tested/navigation. The page is deliberately a maintained evidence record: the dedicated leak/soak campaign is still marked planned, and future runs should publish exact reproducible workload/toolchain/result metadata rather than converting one run into a timeless claim.

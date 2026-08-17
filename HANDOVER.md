@@ -149,3 +149,8 @@ output aligned with this rule when adding or renaming pages.
 
 - Documentation content width is intentionally large enough for benchmark/comparison tables. On desktop, table cells wrap inside the available column instead of forcing horizontal scrolling; narrow-screen scrolling remains a fallback.
 - The site-wide rendered table audit covers all Minify++ generated tables together with the sibling sites at 1024–1920 px desktop widths. Keep this invariant when adding benchmark columns.
+
+## Memory-safety living record checkpoint (2026-08-18)
+
+- `docs/memory-safety` is the dedicated living leak/resource-safety record beside Battle Tested. It currently describes the planned format/API/CLI/embedded soak campaign; do not promote it to a passed verdict until the reproducible campaign is run.
+- Keep detailed memory evidence there and only summarize/link it from Battle Tested so old one-off results do not become permanent marketing copy.
