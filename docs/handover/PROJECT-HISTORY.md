@@ -328,3 +328,7 @@ Added a dedicated Memory & resource safety documentation page and linked it from
 ## 2026-08-18 — Minify++ memory-safety Checkpoint 2A
 
 Added and validated a long-lived seven-format lifetime corpus and batch CLI resource-stress harness. At commit `db2a6ff`, the sanitizer corpus passed 80 iterations with zero ASan/LSan/UBSan findings; the 300-iteration native soak stabilized at 7,160 KiB RSS after a 7,096 KiB warm-up observation. Sanitized CLI stress passed 8 rounds of 42 files and the native CLI soak passed 30 rounds of 70 files, including partial-batch failure cleanup. No production source repair was necessary. Independent Valgrind confirmation remains pending because Valgrind is unavailable in the checkpoint environment.
+
+## 2026-08-18 — Minify++ memory-safety Checkpoint 2B complete
+
+Completed the independent Linux leak/lifetime confirmation for the maintained Minify++ corpus. At canonical commit `2a51a38`, Valgrind 3.26.0 ran 30 corpus iterations with 0 errors, 0 bytes in use at exit, all 2,448 allocations freed and no leaks possible; peak Valgrind process RSS was 184,908 KiB. Combined with Checkpoint 2A sanitizer, RSS, CLI and fuzz evidence, this closes the standalone Minify++ gate without a production source repair.

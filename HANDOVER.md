@@ -161,3 +161,9 @@ output aligned with this rule when adding or renaming pages.
 - Added batch CLI memory/resource stress: sanitized 8×42-file rounds and native 30×70-file rounds, including in-place replacement and controlled mixed valid/invalid batch cleanup.
 - No production Minify++ source change was required. The maintained Valgrind target is still open because this checkpoint environment does not provide Valgrind. Do not convert sanitizer success into an independent Valgrind claim.
 - Keep Nift-owned Minify++ integration stress in the later cross-project checkpoint; this checkpoint owns standalone Minify++ resource behavior plus synchronization of its maintained corpus into Nift.
+
+## Memory-safety Checkpoint 2B complete (2026-08-18)
+
+- `docs/memory-safety` now records the independent Valgrind completion of the standalone Minify++ lifetime gate: Valgrind 3.26.0, Linux x86_64, canonical commit `2a51a38`, 30 maintained lifetime-corpus iterations, 0 errors, 0 bytes in use at exit, all 2,448 allocations freed, and 184,908 KiB peak process RSS.
+- Keep detailed memory numbers on the living memory-safety page. Battle Tested should summarize/link the evidence layer rather than duplicate a snapshot.
+- No production Minify++ source repair was required by Checkpoint 2. Future changes affecting allocation/lifetime behavior should invalidate or refresh this evidence explicitly.
