@@ -154,3 +154,10 @@ output aligned with this rule when adding or renaming pages.
 
 - `docs/memory-safety` is the dedicated living leak/resource-safety record beside Battle Tested. It currently describes the planned format/API/CLI/embedded soak campaign; do not promote it to a passed verdict until the reproducible campaign is run.
 - Keep detailed memory evidence there and only summarize/link it from Battle Tested so old one-off results do not become permanent marketing copy.
+## Memory-safety Checkpoint 2A (2026-08-18)
+
+- Added a maintained long-lived multi-format Minify++ corpus covering HTML/CSS/JS/JSX/JSON/XML/SVG success, second-pass/idempotence pressure, malformed/rejected cleanup, and alternating large/tiny buffers in one process.
+- At commit `db2a6ff`, 80 ASan/LSan/UBSan iterations completed with zero findings. The separate 300-iteration native soak recorded 7,096 KiB after warm-up, 7,160 KiB at midpoint and 7,160 KiB at completion.
+- Added batch CLI memory/resource stress: sanitized 8×42-file rounds and native 30×70-file rounds, including in-place replacement and controlled mixed valid/invalid batch cleanup.
+- No production Minify++ source change was required. The maintained Valgrind target is still open because this checkpoint environment does not provide Valgrind. Do not convert sanitizer success into an independent Valgrind claim.
+- Keep Nift-owned Minify++ integration stress in the later cross-project checkpoint; this checkpoint owns standalone Minify++ resource behavior plus synchronization of its maintained corpus into Nift.

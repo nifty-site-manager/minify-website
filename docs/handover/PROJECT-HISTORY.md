@@ -325,3 +325,6 @@ Widened the documentation content area and made comparison/benchmark tables wrap
 ## 2026-08-18 — Memory/resource-safety living documentation
 
 Added a dedicated Memory & resource safety documentation page and linked it from Battle Tested/navigation. The page is deliberately a maintained evidence record: the dedicated leak/soak campaign is still marked planned, and future runs should publish exact reproducible workload/toolchain/result metadata rather than converting one run into a timeless claim.
+## 2026-08-18 — Minify++ memory-safety Checkpoint 2A
+
+Added and validated a long-lived seven-format lifetime corpus and batch CLI resource-stress harness. At commit `db2a6ff`, the sanitizer corpus passed 80 iterations with zero ASan/LSan/UBSan findings; the 300-iteration native soak stabilized at 7,160 KiB RSS after a 7,096 KiB warm-up observation. Sanitized CLI stress passed 8 rounds of 42 files and the native CLI soak passed 30 rounds of 70 files, including partial-batch failure cleanup. No production source repair was necessary. Independent Valgrind confirmation remains pending because Valgrind is unavailable in the checkpoint environment.
