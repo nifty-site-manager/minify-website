@@ -13,7 +13,7 @@ data.json   → data.min.json</code></pre>
 <h2>Replace files deliberately</h2>
 <pre><code class="language-bash">minify --in-place dist/app.js
 minify -i dist/styles.css</code></pre>
-<p><code>-i</code> is intentionally explicit because overwriting source should never be an accidental default.</p>
+<p><code>-i</code> is intentionally explicit because overwriting source should never be an accidental default.</p><div class="call"><strong>Writes are staged.</strong> The CLI prepares a complete sibling temporary output before replacement, preserves an existing regular file's permission bits, and rejects symbolic-link destinations rather than following them. A failed transform/write does not truncate the previous file.</div>
 <h2>Use it after another compiler</h2>
 <pre><code class="language-json">{
   "scripts": {

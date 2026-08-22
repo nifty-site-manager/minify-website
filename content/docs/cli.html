@@ -17,7 +17,7 @@ minify -i public/app.js</code></pre>
 <pre><code class="language-bash">minify --version
 minify --help</code></pre>
 <h2>Directory workflows</h2>
-<p>The long-term CLI direction is to make commands such as <code>minify output/</code> convenient without turning Minify++ into a project/build system. Directory traversal is file discovery; dependency graphs, compilation and deployment policy still belong elsewhere.</p>
+<p>The current CLI accepts named regular files, not directories. Let your shell, task runner or build system discover files and pass those paths to <code>minify</code>. Dependency graphs, compilation and deployment policy deliberately remain outside Minify++.</p>
 <h2>Exit status</h2>
 <p>Automation should treat non-zero exit status as a failed optimisation step. Minify++'s job in CI is simple: either produce valid minified artifacts or fail clearly enough that the deployment can stop.</p>
 <h2>Failure behavior</h2>
