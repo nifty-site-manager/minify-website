@@ -45,7 +45,7 @@ pre code{font:500 0.88rem/1.65 ui-monospace,monospace}
 .kw{color:#ff9a70}
 .str{color:#bce88e}
 .num{color:#8fd4ff}
-.com{color:#7b897f}
+.com{color:#7b897f}.cmd{color:#bce88e;font-weight:700}.key{color:#ffb88a}.pre{color:#c7a7ff}
 code:not(pre code){font:600 0.9em ui-monospace;background:var(--card);padding:.1em 0.3em}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);max-width:1050px;margin:30px auto}
 .card{background:var(--card);padding:26px}
